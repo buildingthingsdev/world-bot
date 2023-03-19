@@ -33,7 +33,8 @@ module.exports = {
                         .setDescription(`You've changed my status!`)
                         .addFields(
                             { name: `Status:`, value: `${basecapitalised}`},
-                            { name: `Activity:`, value: `soon™️`},
+                            { name: `Activity:`, value: `soon™️`}
+                        .setFooter({ text: `This command is broken.` }),
                         )
                     await interaction.reply({ embeds: [feedback], ephemeral: true });
                 },

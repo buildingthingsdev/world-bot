@@ -33,7 +33,7 @@ module.exports = {
                 .setTitle(`📢 New announcement!`)
                 .setDescription(`${announcement}`)
                 .setAuthor({name: `${username}`, iconURL: `https://cdn.discordapp.com/avatars/${id}/${avatarURL}.webp`})
-                .setFooter({ text: `This command is broken.` });
+
 
             const channel = interaction.client.channels.cache.get(`${announceChannel}`);
             channel.send({ embeds: [announced] })
