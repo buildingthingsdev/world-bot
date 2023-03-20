@@ -35,15 +35,17 @@
 
 3. Open a terminal/command prompt window where you extracted the files.
 
-4. [Install discord.js into the directory](https://discordjs.guide/preparations/#installing-discord-js).
+4. Initialize a node.js package by running `npm init`.
+
+5. [Install discord.js into the directory](https://discordjs.guide/preparations/#installing-discord-js).
 
 | npm                      | yarn                  | pnpm                  |
 | ------------------------ | --------------------- | --------------------- |
 | `npm install discord.js` | `yarn add discord.js` | `pnpm add discord.js` |
 
-5. Rename `config-ex.json` to `config.json`.
+6. Rename `config-ex.json` to `config.json`.
 
-6. Fill out `config.json` with info.
+7. Fill out `config.json` with info.
 
 ```json
 {
@@ -55,9 +57,9 @@
 ```
 <small>Need help? Join the suppport server.</small>
 
-7. In your console, run `node cmds.js`. This will intialize the commands.
+8. In your console, run `node cmds.js`. This will intialize the commands.
 
-8. After your commands are intialized, run `node index.js`. You should see a message stating that the bot is ready. Run `/status` to update the status, or run `/announce` to send an embed with your custom text to your specified announcement channel.
+9. After your commands are intialized, run `node index.js`. You should see a message stating that the bot is ready. Run `/status` to update the status, or run `/announce` to send an embed with your custom text to your specified announcement channel.
 
 Thanks for your interest!
 
