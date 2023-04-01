@@ -35,6 +35,6 @@ module.exports = {
                 .setAuthor({name: `${username}`, iconURL: `https://cdn.discordapp.com/avatars/${id}/${avatarURL}.webp`})
                 .setFooter({ text: `${guildname}`})
 
-            interaction.reply({ embeds: [announces], ephemeral: false })
+            interaction.reply({ embeds: [announced], ephemeral: false })
         },
     };
