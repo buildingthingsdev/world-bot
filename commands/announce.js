@@ -21,7 +21,7 @@ module.exports = {
             const id = user.id
             const avatarURL = user.avatar
             const username = user.username
-            
+            const guildname = interaction.guild.name            
 
             const sent = new EmbedBuilder()
                 .setColor([50, 168, 82])
@@ -33,10 +33,8 @@ module.exports = {
                 .setTitle(`📢 New announcement!`)
                 .setDescription(`${announcement}`)
                 .setAuthor({name: `${username}`, iconURL: `https://cdn.discordapp.com/avatars/${id}/${avatarURL}.webp`})
+                .setFooter({ text: `${guildname}`})
 
-
-            const channel = interaction.client.channels.cache.get(`${announceChannel}`);
-            channel.send({ embeds: [announced] })
-            interaction.reply({ embeds: [sent], ephemeral: true })
+            interaction.reply({ embeds: [announces], ephemeral: false })
         },
     };

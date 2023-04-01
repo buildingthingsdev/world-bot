@@ -1,6 +1,5 @@
 {
 	"token": "your bot's token",
 	"clientId": "your bot's client id",
-	"guildId": "your server id",
-	"announceChannel": "announcement channel id"
+	"guildId": "your server id"
 }
