@@ -1,5 +1,5 @@
 const { Client, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, TextChannel } = require(`discord.js`);
-const { announceChannel } = require('../config/config.json');
+const { announceChannel } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName(`announce`)
