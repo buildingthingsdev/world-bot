@@ -1,5 +1,4 @@
 const { Client, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, TextChannel } = require(`discord.js`);
-const { announceChannel } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName(`announce`)
@@ -12,16 +11,27 @@ module.exports = {
             option.setName(`user`)
             .setDescription(`Who is making this annoucement?`)
             .setRequired(true))
+        .addBooleanOption(option=>
+            option.setName(`publish`)
+                .setDescription(`You still have to click 'publish' this just changes the way the bot messages the channel.`)
+                .setRequired(true))
+        .addChannelOption(option =>
+            option.setName(`channel`)
+                .setDescription(`What channel should it be posted in? Required if you put 'true' under publish.`)
+                .setRequired(false))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
         .setDMPermission(false),
         async execute(interaction) {
 
             const announcement = interaction.options.getString(`announcement`);
             const user = interaction.options.getUser(`user`);
+            const pub = interaction.options.getBoolean(`publish`);
+            const sendIn = interaction.options.getChannel(`channel`);
             const id = user.id
             const avatarURL = user.avatar
             const username = user.username
-            const guildname = interaction.guild.name            
+            const guildname = interaction.guild.name
+            
 
             const sent = new EmbedBuilder()
                 .setColor([50, 168, 82])
@@ -35,6 +45,19 @@ module.exports = {
                 .setAuthor({name: `${username}`, iconURL: `https://cdn.discordapp.com/avatars/${id}/${avatarURL}.webp`})
                 .setFooter({ text: `${guildname}`})
 
-            interaction.reply({ embeds: [announced], ephemeral: false })
+            function doPublish() {
+                interaction.reply({ embeds: [sent], ephemeral: true })
+                sendIn.send({ embeds: [announced], ephemeral: false })
+            }
+
+            function noPublish() {
+                interaction.reply({ embeds: [announced], ephemeral: false })
+            }
+
+            if (pub === true) {
+                doPublish();
+            } else if (pub === false) {
+                noPublish();
+            }
         },
     };
