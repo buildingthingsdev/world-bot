@@ -37,6 +37,7 @@ module.exports = {
                 .setColor([50, 168, 82])
                 .setTitle(`✅ Announcement sent!`)
                 .setDescription(`You sent an announcement: \n ${announcement}`)
+                .setFooter({ text: `Don't see the announcement? Make sure you specified a channel in the command.`})
 
             const announced = new EmbedBuilder()
                 .setColor([50, 168, 82])
